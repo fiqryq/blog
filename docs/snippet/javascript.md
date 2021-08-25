@@ -1,0 +1,136 @@
+---
+sidebar_position: 2
+---
+
+# Javascript
+
+## Express router
+simple router express js.
+
+### App.js
+```js
+const express = require("express");
+const app = express();
+const route = require("./Routes/index");
+const port = 3000;
+
+app.use("/", route);
+
+app.listen(port, () => {
+  console.log(`App runing at ${port}`);
+});
+```
+
+### About
+```js
+const express = require("express");
+const router = express.Router();
+
+router.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
+router.get("/about", (req, res) => {
+  res.send("Hello from about");
+});
+
+module.exports = router;
+```
+
+## Perfectsubstring
+
+```js
+ function perfectSubstring(s, k) {
+ var char = k.split('');
+    var list = [];
+    var count = 0;
+    
+    var i = 1;
+    while(i <= k.length){
+        let temp;
+        for(var j=0; j< char.length -1 + 1; j++){
+            temp = char.slice(j,j+i);
+            if(temp.length % s === 0){
+                list.push(temp);
+            }
+        }
+        i++
+    }
+    
+    var map = [];
+    var obj;
+    list.forEach(element => {
+        obj = {};
+        element.forEach(item => {
+           if(obj[item] === undefined || obj[item] === null){
+               obj[item] = 1;
+           } else {
+               obj[item] = obj[item] + 1;
+           }
+        });
+        map.push(obj);
+    });
+    
+    map.forEach(o => {
+        var valid = true;
+        Object.keys(o).forEach(key => {
+            if(o[key] !== s) {
+                valid = false;
+            }
+        });
+        
+        if(valid) count++;
+    });
+    return count++;
+ }
+```
+
+## Custom data table
+Custom filter data table js native 
+
+```js
+<script>
+$(document).ready(function() {
+    $('#example').DataTable({
+        initComplete: function() {
+
+            this.api().columns().every(function() {
+                var column = this;
+
+                if (column.index() == 0) {
+
+                    input = $('<input type="text" />').appendTo($(column.header())).on(
+                        'keyup change',
+                        function() {
+                            if (column.search() !== this.value) {
+                                column.search(this.value)
+                                    .draw();
+                            }
+                        });
+                    return;
+                }
+
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo($("#filters").find("th").eq(column.index()))
+                    .on('change', function() {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val());
+
+                        column.search(val ? '^' + val + '$' : '', true, false)
+                            .draw();
+                    });
+
+                console.log(select);
+
+                column.data().unique().sort().each(function(d, j) {
+                    select.append('<option value="' + d + '">' + d + '</option>')
+                });
+            });
+        }
+    });
+
+    console.log()
+});
+</script>
+```
+

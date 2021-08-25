@@ -1,0 +1,98 @@
+---
+sidebar_position: 1
+---
+
+# Typescript
+
+
+## Ternary Operation
+
+```js
+let num2:number = 2
+
+const a = num1 < num2 ? 'red' : 'blue'
+/** 
+ * karena expresi pertama terpenuhi yaitu num1(1) < num2(2) akan bernilai true 
+ * maka program akan mengeksekusi expresi kedua yaitu menampilkan red
+ * */ 
+console.log(a) 
+
+const b = num1 > num2 ? 'red' : 'blue'
+/** 
+ * karena expresi pertama tidak terpenuhi yaitu num1(1) > num2(2) akan bernilai false 
+ * maka program akan mengeksekusi expresi ketiga yaitu menampilkan blue
+ * */ 
+console.log(b)
+```
+
+## Date Manual 
+```ts
+const formatDate = (stringDate: string): string => {
+    const MONTHS = ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DECEMBER"];
+
+    // Pecah string menggunakan `-`
+    const [year, month, date] = stringDate.split("-");
+
+    // ubah month menjadi int dengan meletakkan + di depannya, kemudian dikurangi 1 agar indeksnya sesuai dengan array MONTHS
+    const monthIndex = +month - 1;
+    const monthName = MONTHS[monthIndex];
+
+    return `${date} ${monthName} ${year}`;
+}
+
+
+const date = "2021-05-08";
+console.log(formatDate(date)); // 08 MEI 2021
+```
+
+## Revert Date
+
+```ts
+const formatDate = (date: string): string => {
+  const MONTHS = ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"];
+  return date.split("-").map((s,i) => i === 1 ? MONTHS[+s-1] : s).reverse().join(" ");
+}
+
+const revertDate = (date: string): string => {
+  const MONTHS = ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"];
+  return date.split(" ").map((s,i) => i === 1 ? (MONTHS.findIndex((m) => s === m) + 1) : s).reverse().join("-");
+}
+
+const date = "2021-12-08";
+
+const formattedDate = formatDate(date);
+console.log(formattedDate);
+
+const revertedDate = revertDate(formattedDate);
+console.log(revertedDate);
+```
+
+## Simple Map Object
+
+```ts
+let o = {
+  data: [
+        {
+            id: 1,
+            name:"doc 1",
+            activestatus: true
+        },
+        {
+            id: 2,
+            name:"doc 2",
+            activestatus: true
+        },
+  ]
+}
+
+o.data = o.data.map(d => {
+  d.activestatus = false;
+  return d;
+})
+
+console.log(o);
+```
+<b>Note : </b>
+Perbedaan .map dengan .forEach:
+Kalau .map() dia ga ngemutasi data aslinya, makanya contoh diatas hasil map-nya di di assign lagi ke o.data
+Kalau .forEach() dia ngemutasi data aslinya
