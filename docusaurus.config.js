@@ -12,6 +12,7 @@ module.exports = {
   favicon: "/img/favicon.ico",
   organizationName: "fiqryq",
   projectName: "porfolio",
+  themes: ["@docusaurus/theme-live-codeblock"],
   themeConfig: {
     navbar: {
       title: "Hi there 👋",
