@@ -7,7 +7,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #0088c7;
+  --ifm-color-primary: #f1396d;
   --ifm-color-primary-dark: #272727;
   --ifm-color-primary-darker: #252525;
   --ifm-color-primary-darkest: #1e1e1e;
@@ -26,4 +26,12 @@
 
 html[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.header-github-link {
+  background: url(/img/github.svg);
+}
+
+.github:hover {
+  opacity: 0.4;
 }

@@ -4,15 +4,23 @@ sidebar_position: 5
 
 # PHP
 
+:::info
+
+Just my random code snippet.
+
+:::
+
 ## Convert date
+
 ```php
-<?php   
+<?php
 $oridate = $this->request->getVar('form_name');
 $newdate = date('y-m-d', strtotime($oridate));
 ?>
 ```
 
 ## Flash alert codeigneter 4
+
 ```php
 <?php
     if (!empty(session()->getFlashdata('edit'))) { ?>
@@ -29,7 +37,7 @@ $newdate = date('y-m-d', strtotime($oridate));
         $variable = $_FILES['form_name'];
         if ($variable = '') {
             # code...
-        } else {  
+        } else {
             $config['upload_path'] = './upload/';
             $config['allowed_types'] = 'gif|jpg|png';
             $this->load->library('upload', $config);

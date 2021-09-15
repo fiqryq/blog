@@ -22,16 +22,17 @@ module.exports = {
       },
       items: [
         { to: "/", label: "Blog", position: "left" },
+        { to: "/project", label: "Project", position: "left" },
         {
           type: "doc",
           docId: "index",
-          position: "left",
-          label: "About me",
+          position: "right",
+          label: "About",
         },
         {
           href: "https://github.com/fiqryq",
-          label: "GitHub",
           position: "right",
+          label: "Github",
         },
       ],
     },
