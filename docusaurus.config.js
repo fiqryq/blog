@@ -22,13 +22,13 @@ module.exports = {
       },
       items: [
         { to: "/", label: "Blog", position: "left" },
-        { to: "/project", label: "Project", position: "left" },
-        {
-          type: "doc",
-          docId: "index",
-          position: "right",
-          label: "About",
-        },
+        { to: "/about", label: "About", position: "right" },
+        // {
+        //   type: "doc",
+        //   docId: "index",
+        //   position: "right",
+        //   label: "About",
+        // },
         {
           href: "https://github.com/fiqryq",
           position: "right",
@@ -69,6 +69,7 @@ module.exports = {
       darkTheme: darkCodeTheme,
     },
   },
+  plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
   presets: [
     [
       "@docusaurus/preset-classic",
