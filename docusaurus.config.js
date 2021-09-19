@@ -69,7 +69,7 @@ module.exports = {
       darkTheme: darkCodeTheme,
     },
   },
-  plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
+  plugins: [require.resolve("@easyops-cn/docusaurus-search-local")],
   presets: [
     [
       "@docusaurus/preset-classic",
