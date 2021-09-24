@@ -22,7 +22,7 @@ module.exports = {
       },
       items: [
         { to: "/", label: "Blog", position: "left" },
-        { to: "/about", label: "About", position: "right" },
+        // { to: "/about", label: "About", position: "right" },
         // {
         //   type: "doc",
         //   docId: "index",
